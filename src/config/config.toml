@@ -1,0 +1,26 @@
+# Inmobiler JP modules config
+
+## App
+[app]
+  ddbb = "inmobiler_db"
+  ddbbe = "sqlite"
+  doc_saving_strategy = "file"
+
+  [InternalDB]
+    users = "users"
+    properties = "properties"
+    services = "services"
+    chats = "ChatRooms"
+
+## Protocols
+[ProposalDTO]
+  mandatory = ["documents","offerentID","demandID","proposed_validity_days","currency","offering"]
+
+[ABSofferingDTO]
+  mandatory = ["offertID"]
+
+[ServiceOfferingDTO]
+  mandatory = ["date", "location", "budget", "advance_payment"]
+
+[RentOfferingDTO]
+  mandatory = ["start_date", "end_date", "starting_value", "variable_fee", "guarantee_deposit", "deposit_as_percent_total_rent"]
