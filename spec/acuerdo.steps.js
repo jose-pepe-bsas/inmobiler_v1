@@ -18,6 +18,8 @@ let Cuando = it;
 let Entonces = it;
 let Y = it;
 
+// TODO: implementar verdaderamente la persistencia en base de datos
+// TODO: esperar como retorno el resumen de propuesta
 
 const chat = {
   called : false,
