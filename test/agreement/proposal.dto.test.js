@@ -15,6 +15,8 @@ import {
 //TODO: Refactorizar construccion de contrato con un builder.
 //TODO: Separar la entidad contrato de la entidad propuesta
 /*TODO: Pending testing cases
+ * - TEST: proposal should return a proposal resume
+ * - TEST: proposal should obtain required data for datatables in database from chat id
  * - TEST: Solamente pueden hacerse propuestas de contrato con propiedades cuyo estado no sea "bloqueada"
  * - TEST: el proposalDTO debe llevar informacion en general de las propuestas, el "ABSoferringDTO" debe llevar informacion variable segun si es contrato de servicios o propiedades (RentOfferingDTO o ServiceOfferingDTO)
  * - TEST: Generation debe poder generar tanto propuestas de alquiler como propuestas de servicios
