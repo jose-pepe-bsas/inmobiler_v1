@@ -56,7 +56,29 @@ const invalidProposalDTOData = {
     offering,
 };
 
+
+const validProposalResumeData = {
+  total_months: 24,
+ initial_monthly_rent : 20000,
+ estimated_total_rent : 4800000,
+ rental_period : "01/10/2024 - 01/01/2025",
+ rate_type: {rate,},
+ deposit: {deposit,},
+ documents : ["some docs","other docs"],
+};
+
+const invalidProposalResumeData = {
+  total_months: 24,
+ initial_monthly_rent : 20000,
+ estimated_total_rent : 4800000,
+ rate_type: {rate,},
+ deposit: {deposit,},
+};
+
+
 export {
   invalidProposalDTOData,
   validProposalDTOData,
+  validProposalResumeData,
+  invalidProposalResumeData,
 }

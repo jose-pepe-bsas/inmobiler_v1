@@ -24,3 +24,6 @@
 
 [RentOfferingDTO]
   mandatory = ["start_date", "end_date", "starting_value", "variable_fee", "guarantee_deposit", "deposit_as_percent_total_rent"]
+
+[ProposalResume]
+  mandatory = ["total_months", "initial_monthly_rent", "estimated_total_rent", "rental_period", "rate_type", "deposit", "documents"]
