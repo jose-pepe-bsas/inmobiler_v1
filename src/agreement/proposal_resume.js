@@ -21,7 +21,7 @@ class ProposalResume extends ABS{
         } catch (error) {
             throw error;
         }
-        Object.assign(this, arguments);
+        Object.assign(this, arguments[0]);
 
   }
 }

@@ -5,7 +5,11 @@ import { ProposalResume } from "../../src/agreement/proposal_resume.js";
 import { 
   invalidProposalResumeData,
   validProposalResumeData,
+  validProposalDTOData,
+  proposal_resume_mock,
 } from "../help/proposal_factory.js";
+import { Agreement } from "../../src/agreement/agreement.js";
+import { ProposalDTO } from "../../src/agreement/proposal.dto.js";
 
 
 
@@ -32,5 +36,18 @@ describe("Proposal Resume should be created when proposes", function() {
             Error, "No all parameters has been passed here"
         );
     });
+
+
+  it('test_agreement_should_create_a_proposal_resume_from_proposal', function () {
+    const agreement = new Agreement();
+    const storageMock = {
+      saveProposal ( ) {return;},
+    }
+    const proposal_dto = new ProposalDTO(validProposalDTOData);
+    const resume = agreement.proposal(proposal_dto,"324523",storageMock);
+    assert.equal(resume.rate_type,"VAR");
+    assert.equal(resume.deposit,"as_percent_total_rent");
+
+  })
 
 });
