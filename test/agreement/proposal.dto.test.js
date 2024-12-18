@@ -4,7 +4,13 @@ import {
 import {
     ProposalDTO,
 } from "../../src/agreement/proposal.dto.js";
-import { validProposalDTOData , invalidProposalDTOData } from "../help/proposal_factory.js";
+import { ProposalResume } from "../../src/agreement/proposal_resume.js";
+import { 
+  validProposalDTOData,
+  invalidProposalDTOData,
+  invalidProposalResumeData,
+  validProposalResumeData,
+} from "../help/proposal_factory.js";
 
 //TODO: Refactorizar construccion de contrato con un builder.
 //TODO: Separar la entidad contrato de la entidad propuesta
