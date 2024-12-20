@@ -7,11 +7,14 @@ const chat = {
 };
 const storage = {
   called : false,
-  store: [],
+  store: new Map(),
   saveProposal (saving,data){
-    this.store[0] =saving
+    this.store.set(saving.id,saving);
     this.called = true;
   },
+  getProposal(proposalId){
+    return this.store.get(proposalId);
+  }
 };
 
 const suscribers = {

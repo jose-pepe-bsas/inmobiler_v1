@@ -24,6 +24,7 @@ class Agreement {
         const rate_type = data.rental_type;
         const deposit = data.deposit;
         const documents = data.documents;
+        const proposal_id = data.proposal_id;
         const resume_data = {
             total_months,
             initial_monthly_rent,
@@ -32,6 +33,7 @@ class Agreement {
             rate_type,
             deposit,
             documents,
+            proposal_id,
         }
         return new ProposalResume(resume_data)
     }
@@ -44,6 +46,7 @@ class Agreement {
         const rental_type = offert.rate.type; //note:Renombrarlo a tipo de renta!
         const deposit = offert.deposit.type;
         const documents = proposalDTO.documents;
+        const proposal_id = proposalDTO.id;
         const data = {
             from,
             to,
@@ -51,13 +54,14 @@ class Agreement {
             rental_type,
             deposit,
             documents,
+            proposal_id,
         }
         return data;
 
     }
 
-    reviewing() {
-        return this.storage.store[0];
+    reviewing(proposal_id) {
+        return this.storage.getProposal(proposal_id);
     }
 
     notify() {

@@ -1,3 +1,5 @@
+import { ProposalResume } from "../../src/agreement/proposal_resume.js";
+
 const rate_id = 12421421;
 const rate_type = "VAR";
 const variation_lapse = 3;
@@ -79,7 +81,7 @@ const invalidProposalResumeData = {
  deposit: {deposit,},
 };
 
-const proposal_resume_mock= {
+const proposal_resume_mock_data= {
   total_months: 24,
   initial_monthly_rent: 40000,
   estimated_total_rent: 960000,
@@ -87,8 +89,12 @@ const proposal_resume_mock= {
   rate_type: 'VAR',
   deposit: 'as_percent_total_rent',
   documents: "loc1,loc2",
+  proposal_id: "uuid",
 }
 
+const proposal_resume_mock = new ProposalResume(validProposalResumeData);
+
+Object.assign(proposal_resume_mock, proposal_resume_mock_data);
 
 export {
   invalidProposalDTOData,

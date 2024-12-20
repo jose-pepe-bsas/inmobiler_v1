@@ -2,6 +2,8 @@ import {
     ABS
 } from '../config/abs.js'
 
+import { idGenerator } from "./index.js";
+
 
 
 class AboutRent {
@@ -53,6 +55,7 @@ class ProposalDTO extends ABS {
             throw error;
         }
         Object.assign(this, arguments[0]);
+        this.id = idGenerator.newId()
         this.documents = this.documents.map(doc => doc.path).toString();
         this.offeringDefinition()
     }
