@@ -8,8 +8,11 @@ import {
   validProposalDTOData,
   proposal_resume_mock,
 } from "../help/proposal_factory.js";
-import { Agreement } from "../../src/agreement/agreement.js";
 import { ProposalDTO } from "../../src/agreement/proposal.dto.js";
+import { 
+  IsolatedAgreement,
+  storage,
+} from "../help/agreement_factory.js";
 
 
 
@@ -39,14 +42,12 @@ describe("Proposal Resume should be created when proposes", function() {
 
 
   it('test_agreement_should_create_a_proposal_resume_from_proposal', function () {
-    const agreement = new Agreement();
-    const storageMock = {
-      saveProposal ( ) {return;},
-    }
+    const agreement = new IsolatedAgreement(storage);
     const proposal_dto = new ProposalDTO(validProposalDTOData);
-    const resume = agreement.proposal(proposal_dto,"324523",storageMock);
+    const resume = agreement.proposal(proposal_dto,"324523");
     assert.equal(resume.rate_type,"VAR");
     assert.equal(resume.deposit,"as_percent_total_rent");
+    assert.equal(storage.called,true);
 
   })
 
