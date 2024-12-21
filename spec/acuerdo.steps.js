@@ -3,7 +3,10 @@
 import {
     expect
 } from "chai";
-import { Agreement } from "../src/agreement/agreement.js";
+import {
+  Generation,
+  ProposalDTO,
+} from "../src/agreement/index.js";
 
 import { 
   invalidProposalDTOData,
@@ -11,8 +14,6 @@ import {
   proposal_resume_mock,
 
 } from "../test/help/proposal_factory.js";
-
-import {ProposalDTO } from "../src/agreement/proposal.dto.js";
 
 import { 
   IsolatedAgreement,
@@ -36,9 +37,9 @@ let Y = it;
 Feature('Acuerdo', function() {
   Scenario('El oferente crea una propuesta de alquiler', function() {
     Cuando('el oferente crea una propuesta de alquiler completa', function() {
-      this.agreement = IsolatedAgreement(storage, null, suscribers);
+      this.generation = IsolatedAgreement(storage, null, suscribers);
       let proposalDTO = new ProposalDTO(validProposalDTOData);
-      this.proposal_resume = this.agreement.proposal(proposalDTO,2142)
+      this.proposal_resume = this.generation.proposal(proposalDTO,2142)
       console.log("La propuesta es guardada con id: \n",this.proposal_resume.proposal_id,"\n")
     });
     Entonces('el sistema debe permitir la revisión de la propuesta por parte del oferente', function() {

@@ -10,9 +10,8 @@
 * documents (urlpath)
 **/
 import {
-    ABS
-} from '../config/abs.js'
-
+    ABS,
+} from '../index.js'
 
 class ProposalResume extends ABS{
   constructor (data) {

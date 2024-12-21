@@ -1,8 +1,7 @@
 import {
-    ABS
-} from '../config/abs.js'
-
-import { idGenerator } from "./index.js";
+    ABS,
+    idGenerator,
+} from '../index.js'
 
 
 

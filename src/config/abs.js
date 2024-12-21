@@ -21,5 +21,5 @@ class ABS {
 }
 
 export {
-  ABS
+  ABS,
 }

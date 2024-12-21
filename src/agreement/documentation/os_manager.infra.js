@@ -1,6 +1,8 @@
-import fs from 'fs'
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import {
+  fs,
+  dirname,
+  fileURLToPath,
+} from '.././index.js';
 
 class OsManager {
   constructor (lib=fs) {

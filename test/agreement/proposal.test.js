@@ -1,30 +1,26 @@
 import {
-    assert
+    invalidProposalResumeData,
+    validProposalResumeData,
+    validProposalDTOData,
+    proposal_resume_mock,
+    assert,
+    IsolatedAgreement,
+    storage,
+    ProposalResume,
+    ProposalDTO,
 } from "./index.js";
-import { ProposalResume } from "../../src/agreement/proposal_resume.js";
-import { 
-  invalidProposalResumeData,
-  validProposalResumeData,
-  validProposalDTOData,
-  proposal_resume_mock,
-} from "../help/proposal_factory.js";
-import { ProposalDTO } from "../../src/agreement/proposal.dto.js";
-import { 
-  IsolatedAgreement,
-  storage,
-} from "../help/agreement_factory.js";
 
 
 
 /* TODO:: Proposal debe instanciar un resumen de propuesta calculando previamente estos datos:
-* initial_monthly_rent (initial value + currency)
-* estimated_total_rent (initial rent * months)
-* rental_period (from - to)
-* rate_type (solo el tipo de renta)
-* deposit (solo el tipo de deposito)
-*
-* TODO: El controlador de agreement debe buscar y enviar los documentos como mime
-*/
+ * initial_monthly_rent (initial value + currency)
+ * estimated_total_rent (initial rent * months)
+ * rental_period (from - to)
+ * rate_type (solo el tipo de renta)
+ * deposit (solo el tipo de deposito)
+ *
+ * TODO: El controlador de agreement debe buscar y enviar los documentos como mime
+ */
 
 describe("Proposal Resume should be created when proposes", function() {
 
@@ -41,14 +37,14 @@ describe("Proposal Resume should be created when proposes", function() {
     });
 
 
-  it('test_agreement_should_create_a_proposal_resume_from_proposal', function () {
-    const agreement = new IsolatedAgreement(storage);
-    const proposal_dto = new ProposalDTO(validProposalDTOData);
-    const resume = agreement.proposal(proposal_dto,"324523");
-    assert.equal(resume.rate_type,"VAR");
-    assert.equal(resume.deposit,"as_percent_total_rent");
-    assert.equal(storage.called,true);
+    it('test_agreement_should_create_a_proposal_resume_from_proposal', function() {
+        const agreement = new IsolatedAgreement(storage);
+        const proposal_dto = new ProposalDTO(validProposalDTOData);
+        const resume = agreement.proposal(proposal_dto, "324523");
+        assert.equal(resume.rate_type, "VAR");
+        assert.equal(resume.deposit, "as_percent_total_rent");
+        assert.equal(storage.called, true);
 
-  })
+    })
 
 });

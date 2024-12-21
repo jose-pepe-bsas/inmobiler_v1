@@ -1,33 +1,35 @@
-import { Agreement } from "../../src/agreement/agreement.js";
+import {
+    Generation
+} from "../../src/agreement/index.js";
 const chat = {
-  called : false,
-  newProposal(){
-    this.called = true;
-  },
+    called: false,
+    newProposal() {
+        this.called = true;
+    },
 };
 const storage = {
-  called : false,
-  store: new Map(),
-  saveProposal (saving,data){
-    this.store.set(saving.id,saving);
-    this.called = true;
-  },
-  getProposal(proposalId){
-    return this.store.get(proposalId);
-  }
+    called: false,
+    store: new Map(),
+    saveProposal(saving, data) {
+        this.store.set(saving.id, saving);
+        this.called = true;
+    },
+    getProposal(proposalId) {
+        return this.store.get(proposalId);
+    }
 };
 
 const suscribers = {
-        chat,
+    chat,
 };
 
-function IsolatedAgreement(storage, config, _suscribers){
-  return new Agreement(storage, null, _suscribers);
+function IsolatedAgreement(storage, config, _suscribers) {
+    return new Generation(storage, null, _suscribers);
 }
 
 export {
-  IsolatedAgreement,
-  chat,
-  storage,
-  suscribers,
+    IsolatedAgreement,
+    chat,
+    storage,
+    suscribers,
 }
